@@ -1,0 +1,24 @@
+# type the below two lines into your terminal:
+# conda env create --file conda_env.yml
+# conda activate tf
+
+name: tf
+dependencies:
+  - tensorflow
+  - python
+  - numpy
+  - pandas
+  - scikit-learn
+  - jupyter
+  - matplotlib
+  - seaborn
+  - scipy
+  - ipython
+  - scikit-learn-intelex
+
+# If you update the `conda_env.yml` you can run the following to update the
+# environment with your changes:
+
+# ```
+# conda env update --file conda_env.yml --prune
+# ```
