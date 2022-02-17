@@ -16,6 +16,8 @@ dependencies:
   - ipython
   - scikit-learn-intelex
 
+# then run the test.ipynb to verify correct installaltion, not forget to change the notebook kernel to tf
+
 # If you update the `conda_env.yml` you can run the following to update the
 # environment with your changes:
 
