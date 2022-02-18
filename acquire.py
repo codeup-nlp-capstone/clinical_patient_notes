@@ -129,7 +129,9 @@ def basic_clean(string):
     .encode('ascii', 'ignore')\
     .decode('utf-8', 'ignore')
     # Remove anything that isn't a-z, a number, single quote, or whitespace.
-    cleaned = re.sub(r"[^a-z0-9'\s]", '', lower)
+    
+    # cleaned = re.sub(r"[^a-z0-9'\s]", '', lower)
+    cleaned = re.sub(r"[\W]", ' ', lower)
     return cleaned
 
 def tokenize(string):
@@ -203,6 +205,34 @@ def prep_text(df, column, extra_words=[], exclude_words=[]):
                                    extra_words=extra_words, 
                                    exclude_words=exclude_words)
     
-    return df[['category', column, 'stemmed', 'lemmatized']]
+    return df[['case', column, 'stemmed', 'lemmatized']]
         
 '''========================================================================'''
+
+def analyze_text(string):
+    # Get length of total characters in all cleaned science articles.
+    total_characters = len(string)
+    print(f'Total amount of characters: {total_characters}')
+    
+    # Get wordcount of all words in cleaned science articles.
+    total_words = len(string.split())
+    print(f'Total amount of words: {total_words}')
+    
+    # Get list of unique words and a count in cleaned science articles.
+    unique_words = pd.DataFrame(string.split())[0].unique()
+    print('Total amount of unique words: ',len(unique_words))
+
+    # Get average word length of all words in cleaned science articles.
+    avg_wordlength = round(pd.Series([len(word) for word in unique_words]).mean(), 1)
+    print('Average word length: ', avg_wordlength)
+    
+    # Get the ratio of unique words
+    unique_ratio = len(unique_words) / (total_words)
+    print('The ratio of unique words: ', unique_ratio)
+    
+    # Get length of every unique word and plot a histogram of how many times each length of word appears.
+    list_of_graph_titles = news_df.category.unique()
+    plt.figure(figsize=(10,8))
+    sns.histplot([len(word) for word in unique_words], binwidth=1)
+    plt.xlabel('character_count')
+    plt.title('Number of Characters in Each Word')
