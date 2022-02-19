@@ -236,3 +236,17 @@ def analyze_text(string):
     sns.histplot([len(word) for word in unique_words], binwidth=1)
     plt.xlabel('character_count')
     plt.title('Number of Characters in Each Word')
+    
+'''========================================================================'''
+
+def boil_it_down(df, column):
+    cleaned_column = df[column].apply(basic_clean)
+    lists_of_targets = []
+    for target in cleaned_column:
+        lists_of_targets.append(list(re.split(r'\bor', target)))
+    list_of_targets = []
+    for ailments in lists_of_targets:
+        for ailment in ailments:
+            list_of_targets.append(ailment)
+    list_of_targets = [s.strip() for s in list_of_targets]
+    return list_of_targets
