@@ -188,22 +188,22 @@ def prep_text(df, column, extra_words=[], exclude_words=[]):
     df['clean'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(remove_stopwords,
-                                   extra_words=extra_words,
-                                   exclude_words=exclude_words)
+                                    extra_words=extra_words,
+                                    exclude_words=exclude_words)
 
     df['stemmed'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(stem)\
                             .apply(remove_stopwords,
-                                   extra_words=extra_words,
-                                   exclude_words=exclude_words)
+                                    extra_words=extra_words,
+                                    exclude_words=exclude_words)
 
     df['lemmatized'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(lemmatize)\
                             .apply(remove_stopwords,
-                                   extra_words=extra_words,
-                                   exclude_words=exclude_words)
+                                    xtra_words=extra_words,
+                                    exclude_words=exclude_words)
 
     return df[['case', column, 'stemmed', 'lemmatized']]
 
