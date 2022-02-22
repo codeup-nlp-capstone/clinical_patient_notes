@@ -15,7 +15,7 @@ Here we will use natural language processing in order to identify medical condit
 
 ## About the Project
 
-Writing patient notes to document the history of a patient's complaint, exam findings, possible diagnoses, and care. Learning and assessing these skills requires feedback from other doctors. 
+Writing patient notes to document the history of a patient's complaint, exam findings, possible diagnoses, and care. Learning and assessing these skills requires feedback from other doctors.
 
 Until recently, a part of clinical skills exams for medical students involved interacting with standardized patients and taking notes. These notes were later scored by trained physician raters in a labor intensive process.
 
@@ -26,7 +26,6 @@ This project seeks to use natural language processing to identify specific clini
 ## Project Goals
 
 - Develop automated method to map clinical concepts from an exam ruberic to various ways in which these concepts are expressed in clinical patient notes written by medical students.
-
 
 **DELIVERABLES:**
 
@@ -55,7 +54,6 @@ This project seeks to use natural language processing to identify specific clini
 1. There will be patient and condition specific words from notes corresponding to the target conditions.
 2. Bigrams and higher order n-grams could be good modeling features.
 
-
 ---
 
 ## Data Dictionary
@@ -65,7 +63,6 @@ This project seeks to use natural language processing to identify specific clini
 |               |             |            |
 |               |             |            |
 |               |             |            |
-
 
 ---
 
@@ -96,11 +93,12 @@ This project seeks to use natural language processing to identify specific clini
    5. Remove stopwords
    6. Produce a dataframe with the original and cleaned text.
    7. Split data:
-      1. Train, validate, test.
-      2. Separate x/y features / target (language).
+      1. Train (700), test(300).
+         1. We will use k-fold cross validation in lieu of having another out-of-sample split.
+      2. Separate x/y features / target (clinical feature).
 3. **Explore**
-   1. Look at the languages represented.
-   2. Separate the overall corpus into word lists for each language patient and each condition.
+   1. Look at the clinical features represented.
+   2. Separate the overall corpus into word lists for each patient and each clinical feature.
    3. Look at the frequency of words in each list to determine unique words or words with high predictive value.
    4. Visualize most frequent words by patient.
    5. Examine bigrams and other n-grams.
@@ -116,12 +114,12 @@ This project seeks to use natural language processing to identify specific clini
       3. Random Forest
       4. KNN
    3. Tune models
-      1. Use the train and validate datasets to check for overtraining.
-      2. Perform k-fold cross-validation.
+      1. Use k-fold cross validation to  check for overtraining.
    4. Evaluate models
-      1. Determine the most important evaluation metric.
-      2. Compare confusion matrices of different models to see which performs best.
-      3. Test the best model on out of sample data.
+      1. Figure out the baseline.
+      2. Determine the most important evaluation metric.
+      3. Compare confusion matrices of different models to see which performs best.
+      4. Test the best model on out of sample data.
    *Deep Learning models* RNN, LSTM, other neural network approaches to classification.
 5. **Delivery**
    1. Refine best visuals.
