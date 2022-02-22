@@ -130,3 +130,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 jag-nlp-capstone.code-workspace
+elevator_pitch.txt
