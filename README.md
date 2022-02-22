@@ -15,7 +15,7 @@ Here we will use natural language processing in order to identify medical condit
 
 ## About the Project
 
-Writing patient notes to document the history of a patient's complaint, exam findings, possible diagnoses, and care. Learning and assessing these skills requires feedback from other doctors. 
+Writing patient notes to document the history of a patient's complaint, exam findings, possible diagnoses, and care. Learning and assessing these skills requires feedback from other doctors.
 
 Until recently, a part of clinical skills exams for medical students involved interacting with standardized patients and taking notes. These notes were later scored by trained physician raters in a labor intensive process.
 
@@ -26,7 +26,6 @@ This project seeks to use natural language processing to identify specific clini
 ## Project Goals
 
 - Develop automated method to map clinical concepts from an exam ruberic to various ways in which these concepts are expressed in clinical patient notes written by medical students.
-
 
 **DELIVERABLES:**
 
@@ -55,7 +54,6 @@ This project seeks to use natural language processing to identify specific clini
 1. There will be patient and condition specific words from notes corresponding to the target conditions.
 2. Bigrams and higher order n-grams could be good modeling features.
 
-
 ---
 
 ## Data Dictionary
@@ -65,7 +63,6 @@ This project seeks to use natural language processing to identify specific clini
 |               |             |            |
 |               |             |            |
 |               |             |            |
-
 
 ---
 
