@@ -6,6 +6,8 @@ name: tf
 dependencies:
   - tensorflow
   - spacy
+  - nltk
+  - gensim
   - python
   - numpy
   - pandas

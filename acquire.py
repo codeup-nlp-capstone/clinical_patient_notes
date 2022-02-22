@@ -3,7 +3,7 @@ import re
 import json
 import os
 from requests import get
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 import nltk
@@ -19,7 +19,7 @@ def parse_person(person):
     phone = person.select('.phone')[0].text
     address = [l.strip() for l in person.select('p')[-1].text.split('\n')[1:3]]
 
-  
+
     return {
         'name': name, 'quote': quote, 'email': email,
         'phone': phone,
@@ -35,7 +35,7 @@ def parse_blog(url):
     title = blog.h1.text
     date_source = blog.p.text
     content = blog.find_all('div',class_ = 'entry-content')[0].text
-      
+
     return {
         'title': title, 'date & source': date_source, 'original': content
     }
@@ -50,11 +50,11 @@ def get_codeup_blogs(cached=False):
         response = get('https://codeup.com/blog/', headers={'user-agent':'Codeup DS Hopper'})
         soup = BeautifulSoup(response.text)
         urls = soup.find_all('a',class_ = 'more-link')
-        
+
         blog_df = pd.DataFrame([parse_blog(url) for url in urls])
         # save the dataframe as json:
         blog_df.to_json('codeup_blogs.json')
-    
+
         return blog_df
 
 # This function will return the text from an online article.
@@ -69,11 +69,11 @@ def get_article_text():
     response = get(url, headers=headers)
     soup = BeautifulSoup(response.text)
     article = soup.find('div', id='main-content')
-    
+
     # Save it for when needed
     with open('article.txt', 'w') as f:
         f.write(article.text)
-    
+
     return article.text
 
 
@@ -129,7 +129,7 @@ def basic_clean(string):
     .encode('ascii', 'ignore')\
     .decode('utf-8', 'ignore')
     # Remove anything that isn't a-z, a number, single quote, or whitespace.
-    
+
     # cleaned = re.sub(r"[^a-z0-9'\s]", '', lower)
     cleaned = re.sub(r"[\W]", ' ', lower)
     return cleaned
@@ -158,66 +158,66 @@ def remove_stopwords(string, extra_words =[], exclude_words =[]):
     '''
     # Create stopword_list.
     stopword_list = stopwords.words('english')
-    
+
     # Remove 'exclude_words' from stopword_list to keep these in my text.
     stopword_list = set(stopword_list) - set(exclude_words)
-    
+
     # Add in 'extra_words' to stopword_list.
     stopword_list = stopword_list.union(set(extra_words))
 
     # Split words in string.
     words = string.split()
-    
+
     # Create a list of words from my string with stopwords removed and assign to variable.
     filtered_words = [word for word in words if word not in stopword_list]
-    
+
     # Join words in the list back into strings and assign to a variable.
     string_without_stopwords = ' '.join(filtered_words)
-    
+
     return string_without_stopwords
 
 
 # This function will take in a dataframe of news/blog articles and prepare the text in three different ways.
 def prep_text(df, column, extra_words=[], exclude_words=[]):
     '''
-    This function take in a df and the string name for a text column with 
+    This function take in a df and the string name for a text column with
     option to pass lists for extra_words and exclude_words and
     returns a df with the text article title, original text, stemmed text,
     lemmatized text, cleaned, tokenized, & lemmatized text with stopwords removed.
     '''
     df['clean'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
-                            .apply(remove_stopwords, 
-                                   extra_words=extra_words, 
+                            .apply(remove_stopwords,
+                                   extra_words=extra_words,
                                    exclude_words=exclude_words)
-    
+
     df['stemmed'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(stem)\
-                            .apply(remove_stopwords, 
-                                   extra_words=extra_words, 
+                            .apply(remove_stopwords,
+                                   extra_words=extra_words,
                                    exclude_words=exclude_words)
-    
+
     df['lemmatized'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
                             .apply(lemmatize)\
-                            .apply(remove_stopwords, 
-                                   extra_words=extra_words, 
+                            .apply(remove_stopwords,
+                                   extra_words=extra_words,
                                    exclude_words=exclude_words)
-    
+
     return df[['case', column, 'stemmed', 'lemmatized']]
-        
+
 '''========================================================================'''
 
 def analyze_text(string):
     # Get length of total characters in all cleaned science articles.
     total_characters = len(string)
     print(f'Total amount of characters: {total_characters}')
-    
+
     # Get wordcount of all words in cleaned science articles.
     total_words = len(string.split())
     print(f'Total amount of words: {total_words}')
-    
+
     # Get list of unique words and a count in cleaned science articles.
     unique_words = pd.DataFrame(string.split())[0].unique()
     print('Total amount of unique words: ',len(unique_words))
@@ -225,18 +225,18 @@ def analyze_text(string):
     # Get average word length of all words in cleaned science articles.
     avg_wordlength = round(pd.Series([len(word) for word in unique_words]).mean(), 1)
     print('Average word length: ', avg_wordlength)
-    
+
     # Get the ratio of unique words
     unique_ratio = len(unique_words) / (total_words)
     print('The ratio of unique words: ', unique_ratio)
-    
+
     # Get length of every unique word and plot a histogram of how many times each length of word appears.
     list_of_graph_titles = news_df.category.unique()
     plt.figure(figsize=(10,8))
     sns.histplot([len(word) for word in unique_words], binwidth=1)
     plt.xlabel('character_count')
     plt.title('Number of Characters in Each Word')
-    
+
 '''========================================================================'''
 
 def boil_it_down(df, column):
