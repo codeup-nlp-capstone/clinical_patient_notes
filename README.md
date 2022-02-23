@@ -19,7 +19,7 @@ Writing patient notes to document the history of a patient's complaint, exam fin
 
 Until recently, a part of clinical skills exams for medical students involved interacting with standardized patients and taking notes. These notes were later scored by trained physician raters in a labor intensive process.
 
-This project seeks to use natural language processing to identify specific clinical concepts in patient notes.
+This project seeks to use natural language processing to identify specific clinical concepts in patient nots.
 
 ---
 
@@ -148,4 +148,4 @@ This project seeks to use natural language processing to identify specific clini
 
 ---
 
-# Thank you for your time and attention
+## Thank you for your time and attention
