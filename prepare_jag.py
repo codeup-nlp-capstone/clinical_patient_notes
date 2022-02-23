@@ -32,7 +32,7 @@ def basic_clean2(corpus):
     normal_corpus = unicodedata.normalize('NFKD', lower_corpus)\
         .encode('ascii', 'ignore')\
         .decode('utf-8', 'ignore')
-    basic_clean_corpus = re.sub(r"[^a-z0-9'\-\s]", '', normal_corpus)
+    basic_clean_corpus = re.sub(r"[^a-z0-9'\-\s]", ' ', normal_corpus)
     return(basic_clean_corpus)
 
 ##################### TOKEIZER ####################
@@ -106,7 +106,7 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
                                    extra_words=extra_words,
                                    exclude_words=exclude_words)
     print('Added a basic clean column lowercaseing and removing special characters')
-    df['stemmed'] = df[column].apply(basic_clean)\
+    df['stemmed'] = df[column].apply(basic_clean2)\
         .apply(tokenize)\
         .apply(stem)\
         .apply(remove_stopwords,
@@ -114,7 +114,7 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
                exclude_words=exclude_words)
     print('Added stemmed column with tokenized words and stopwords removed')
 
-    df['lemmatized'] = df[column].apply(basic_clean)\
+    df['lemmatized'] = df[column].apply(basic_clean2)\
         .apply(tokenize)\
         .apply(lemmatize)\
         .apply(remove_stopwords,
