@@ -108,4 +108,7 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
                exclude_words=exclude_words)
     print('Added lemmatized column with lemmatized words and stopwords removed')
     print('Data preparation complete')
-    return df[['id', 'case_num_x', 'pn_num', 'feature_num', 'annotation', 'location', 'case_num_y', column, 'clean', 'stemmed', 'lemmatized']]
+    return df[['id', 'case_num', 'pn_num', 'feature_num', 'feature_text', 'annotation', 'location', column, 'clean', 'stemmed', 'lemmatized']]
+
+
+######## Prepare labeled data ########
