@@ -148,4 +148,4 @@ This project seeks to use natural language processing to identify specific clini
 
 ---
 
-# Thank you for your time and attention
+## Thank you for your time and attention

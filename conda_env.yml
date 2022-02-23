@@ -6,6 +6,8 @@ name: tf
 dependencies:
   - tensorflow
   - spacy
+  - nltk
+  - gensim
   - python
   - numpy
   - pandas
@@ -16,6 +18,9 @@ dependencies:
   - scipy
   - ipython
   - scikit-learn-intelex
+  - pip
+  - pip:
+    - wordcloud
 
 # then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to tf
 
