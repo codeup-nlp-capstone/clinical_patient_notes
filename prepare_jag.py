@@ -21,6 +21,20 @@ def basic_clean(corpus):
     basic_clean_corpus = re.sub(r"[^a-z0-9'\s]", '', normal_corpus)
     return(basic_clean_corpus)
 
+############# BASIC CLEAN ###################
+
+
+def basic_clean2(corpus):
+    '''
+    Basic text cleaning function  that  takes a corpus of text; lowercases everything; normalizes unicode characters; and replaces anything that is not a letter, number, whitespace or a single quote.
+    '''
+    lower_corpus = corpus.lower()
+    normal_corpus = unicodedata.normalize('NFKD', lower_corpus)\
+        .encode('ascii', 'ignore')\
+        .decode('utf-8', 'ignore')
+    basic_clean_corpus = re.sub(r"[^a-z0-9'\-\s]", '', normal_corpus)
+    return(basic_clean_corpus)
+
 ##################### TOKEIZER ####################
 
 
@@ -86,7 +100,7 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
     This function take in a df, the name for a text column with the option to pass lists for extra_words and exclude_words and returns a df with the text article title, original text, stemmed text,lemmatized text, cleaned, tokenized, & lemmatized text with stopwords removed.
     '''
     print("Renamed 'pn_history' column to 'original'")
-    df['clean'] = df[column].apply(basic_clean)\
+    df['clean'] = df[column].apply(basic_clean2)\
                             .apply(tokenize)\
                             .apply(remove_stopwords,
                                    extra_words=extra_words,
@@ -108,4 +122,26 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
                exclude_words=exclude_words)
     print('Added lemmatized column with lemmatized words and stopwords removed')
     print('Data preparation complete')
-    return df[['id', 'case_num_x', 'pn_num', 'feature_num', 'annotation', 'location', 'case_num_y', column, 'clean', 'stemmed', 'lemmatized']]
+    return df[['id', 'case_num', 'pn_num', 'feature_num', 'feature_text', 'annotation', 'location', column, 'clean', 'stemmed', 'lemmatized']]
+
+
+######## Prepare labeled data ########
+
+def prep_train():
+    # Load data
+    df = pd.read_csv('train.csv')
+    notes = pd.read_csv('patient_notes.csv')
+    features = pd.read_csv('features_kaggle.csv')
+    print('Test, notes, and features loaded.')
+    # Merge dataframes
+    df = df.merge(notes, how='inner', on='pn_num')
+    df.drop(columns='case_num_y', inplace=True)
+    df.rename(columns={'case_num_x': 'case_num'}, inplace=True)
+    df = df.merge(features, how='inner', on='feature_num')
+    df.drop(columns='case_num_y', inplace=True)
+    df.rename(columns={'case_num_x': 'case_num'}, inplace=True)
+    df.rename(columns={'pn_history': 'original'}, inplace=True)
+    print('Merged dataframes')
+    df = prep_article_data(
+        df, 'original', extra_words=[], exclude_words=['no'])
+    return df
