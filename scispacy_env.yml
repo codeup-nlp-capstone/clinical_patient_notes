@@ -13,7 +13,6 @@ dependencies:
   - jupyter
   - ipython
 
-
 # If you update the `scispacy.yml` you can run the following to update the
 # environment with your changes:
 # conda env update --file scispacy_env.yml --prune
