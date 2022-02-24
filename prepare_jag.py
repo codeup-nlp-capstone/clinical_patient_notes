@@ -147,7 +147,7 @@ def prep_train():
     # Load data
     df = pd.read_csv('train.csv')
     notes = pd.read_csv('patient_notes.csv')
-    features = pd.read_csv('features_kaggle.csv')
+    features = pd.read_csv('features.csv')
     print('Test, notes, and features loaded.')
     # Merge dataframes
     df = df.merge(notes, how='inner', on='pn_num')
