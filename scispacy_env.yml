@@ -7,9 +7,6 @@ dependencies:
   - pip
   - pip:
     - scispacy
-  - python
-  - numpy
-  - pandas
   - jupyter
   - ipython
 
