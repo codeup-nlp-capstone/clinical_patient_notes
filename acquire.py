@@ -2,9 +2,13 @@ import unicodedata
 import re
 import json
 import os
+
 from requests import get
+from sklearn.model_selection import train_test_split
+
 # from bs4 import BeautifulSoup
 import pandas as pd
+import numpy as np
 import requests
 import nltk
 from nltk.corpus import stopwords
@@ -250,3 +254,85 @@ def boil_it_down(df, column):
             list_of_targets.append(ailment)
     list_of_targets = [s.strip() for s in list_of_targets]
     return list_of_targets
+
+'''========================================================================'''
+
+def prep_text2(df, column, extra_words=[], exclude_words=['no','i']):
+    '''
+    This function take in a df and the string name for a text column with 
+    option to pass lists for extra_words and exclude_words and
+    returns a df with the text article title, original text, stemmed text,
+    lemmatized text, cleaned, tokenized, & lemmatized text with stopwords removed.
+    '''
+    df['clean'] = df[column].apply(basic_clean)\
+                            .apply(tokenize)\
+                            .apply(remove_stopwords, 
+                                   extra_words=extra_words, 
+                                   exclude_words=exclude_words)
+    return df[['case', column, 'clean']]
+
+'''========================================================================'''
+
+def split_data(df):
+    test_split = 0.1
+
+    # Initial train and test split.
+    train_df, test_df = train_test_split(
+        df, test_size=test_split, stratify=df['case'].values,
+    )
+
+    # Splitting the test set further into validation and new test set.
+    val_df = test_df.sample(frac=0.5)
+    test_df.drop(val_df.index, inplace=True)
+
+    print(f"Number of rows in training set: {len(train_df)}")
+    print(f"Number of rows in validation set: {len(val_df)}")
+    print(f"Number of rows in test set: {len(test_df)}")
+    return train_df, val_df, test_df
+
+'''========================================================================'''
+
+def prep_and_split_data():
+    
+    # Read csv files into a Pandas dataframe.
+    features = pd.read_csv('features.csv')
+    notes = pd.read_csv('patient_notes.csv')
+    # Rename columns in the features dataframe.
+    features.rename(columns={'feature_num':'feature_id', 'case_num':'case', 'feature_text':'target'}, inplace=True)
+    # Rename columns in notes dataframe.
+    notes.rename(columns={'pn_num':'note_id', 'case_num':'case', 'pn_history':'student_notes'}, inplace=True)
+    # Clean 'student_notes'
+    notes = prep_text2(notes, 'student_notes')
+    # Run text through 'basic_clean' function.
+    features['cleaned_targets'] = features.target.apply(basic_clean)
+    list_of_targets = boil_it_down(features, 'target')
+    # Create a list of targets for each case
+    case_0_targets = list(features[features.case == 0].cleaned_targets)
+    case_1_targets = list(features[features.case == 1].cleaned_targets)
+    case_2_targets = list(features[features.case == 2].cleaned_targets)
+    case_3_targets = list(features[features.case == 3].cleaned_targets)
+    case_4_targets = list(features[features.case == 4].cleaned_targets)
+    case_5_targets = list(features[features.case == 5].cleaned_targets)
+    case_6_targets = list(features[features.case == 6].cleaned_targets)
+    case_7_targets = list(features[features.case == 7].cleaned_targets)
+    case_8_targets = list(features[features.case == 8].cleaned_targets)
+    case_9_targets = list(features[features.case == 9].cleaned_targets)
+    case_targets = pd.DataFrame({'case':[n for n in np.arange(10)], 'targets':[case_0_targets,case_1_targets,case_2_targets,case_3_targets,case_4_targets,case_5_targets,case_6_targets,case_7_targets,case_8_targets,case_9_targets]})
+    df = notes.merge(case_targets, how='inner', on='case')
+    train_df, val_df, test_df = split_data(df)
+    return train_df, val_df, test_df
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

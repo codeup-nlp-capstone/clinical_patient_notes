@@ -147,7 +147,7 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
 def prep_train():
     if os.path.isfile('df.csv'):
         # If csv file exists, read in data from csv file.
-        df = pd.read_json('df.csv')
+        df = pd.read_csv('df.csv')
         return df
     
     # Load data
