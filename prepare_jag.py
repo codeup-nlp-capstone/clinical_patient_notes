@@ -34,13 +34,12 @@ def basic_clean2(corpus):
     normal_corpus = unicodedata.normalize('NFKD', lower_corpus)\
         .encode('ascii', 'ignore')\
         .decode('utf-8', 'ignore')
-    basic_clean_corpus = re.sub(r"[^a-z0-9'\-\s]", ' ', normal_corpus)
+    basic_clean_corpus = re.sub(r"[^a-z0-9'\s]", ' ', normal_corpus)
     return(basic_clean_corpus)
 
 
-############# BASIC CLEAN ###################
+############# BASIC CLEAN 3###################
 
-# Leave -  and /in text
 def basic_clean3(corpus):
     '''
     Basic text cleaning function  that  takes a corpus of text; lowercases everything; normalizes unicode characters; and replaces anything that is not a letter, number, whitespace or a single quote.
@@ -49,7 +48,9 @@ def basic_clean3(corpus):
     normal_corpus = unicodedata.normalize('NFKD', lower_corpus)\
         .encode('ascii', 'ignore')\
         .decode('utf-8', 'ignore')
-    basic_clean_corpus = re.sub(r"[^a-z0-9'\-\s\/]", ' ', normal_corpus)
+    basic_clean_corpus = re.sub(r"[^-/A-Za-z0-9'\s]", ' ', normal_corpus)
+    return(basic_clean_corpus)
+
 ##################### TOKEIZER ####################
 
 
