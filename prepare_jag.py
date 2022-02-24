@@ -5,6 +5,7 @@ import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
 import pandas as pd
+import os
 from time import strftime
 
 ############# BASIC CLEAN ###################
@@ -144,6 +145,11 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
 ######## Prepare labeled data ########
 
 def prep_train():
+    if os.path.isfile('df.csv'):
+        # If csv file exists, read in data from csv file.
+        df = pd.read_json('df.csv')
+        return df
+    
     # Load data
     df = pd.read_csv('train.csv')
     notes = pd.read_csv('patient_notes.csv')
@@ -160,4 +166,5 @@ def prep_train():
     print('Merged dataframes')
     df = prep_article_data(
         df, 'original', extra_words=[], exclude_words=['no'])
+    df.to_csv('df.csv')
     return df
