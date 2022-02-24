@@ -1,0 +1,17 @@
+# type the below two lines into your terminal:
+# conda env create --file scispacy_env.yml
+# conda activate scispace
+
+name: scispace
+dependencies:
+  - pip
+  - pip:
+    - scispacy
+  - pandas
+  - jupyter
+  - ipython
+  - nltk
+
+# If you update the `scispacy.yml` you can run the following to update the
+# environment with your changes:
+# conda env update --file scispacy_env.yml --prune
