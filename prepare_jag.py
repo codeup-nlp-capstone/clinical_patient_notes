@@ -23,6 +23,8 @@ def basic_clean(corpus):
 
 ############# BASIC CLEAN ###################
 
+# Leave - in text
+
 
 def basic_clean2(corpus):
     '''
@@ -35,6 +37,19 @@ def basic_clean2(corpus):
     basic_clean_corpus = re.sub(r"[^a-z0-9'\-\s]", ' ', normal_corpus)
     return(basic_clean_corpus)
 
+
+############# BASIC CLEAN ###################
+
+# Leave -  and /in text
+def basic_clean3(corpus):
+    '''
+    Basic text cleaning function  that  takes a corpus of text; lowercases everything; normalizes unicode characters; and replaces anything that is not a letter, number, whitespace or a single quote.
+    '''
+    lower_corpus = corpus.lower()
+    normal_corpus = unicodedata.normalize('NFKD', lower_corpus)\
+        .encode('ascii', 'ignore')\
+        .decode('utf-8', 'ignore')
+    basic_clean_corpus = re.sub(r"[^a-z0-9'\-\s\/]", ' ', normal_corpus)
 ##################### TOKEIZER ####################
 
 
@@ -100,13 +115,13 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
     This function take in a df, the name for a text column with the option to pass lists for extra_words and exclude_words and returns a df with the text article title, original text, stemmed text,lemmatized text, cleaned, tokenized, & lemmatized text with stopwords removed.
     '''
     print("Renamed 'pn_history' column to 'original'")
-    df['clean'] = df[column].apply(basic_clean2)\
+    df['clean'] = df[column].apply(basic_clean3)\
                             .apply(tokenize)\
                             .apply(remove_stopwords,
                                    extra_words=extra_words,
                                    exclude_words=exclude_words)
     print('Added a basic clean column lowercaseing and removing special characters')
-    df['stemmed'] = df[column].apply(basic_clean2)\
+    df['stemmed'] = df[column].apply(basic_clean3)\
         .apply(tokenize)\
         .apply(stem)\
         .apply(remove_stopwords,
@@ -114,7 +129,7 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
                exclude_words=exclude_words)
     print('Added stemmed column with tokenized words and stopwords removed')
 
-    df['lemmatized'] = df[column].apply(basic_clean2)\
+    df['lemmatized'] = df[column].apply(basic_clean3)\
         .apply(tokenize)\
         .apply(lemmatize)\
         .apply(remove_stopwords,
