@@ -7,8 +7,7 @@ dependencies:
   - pip
   - pip:
     - scispacy
-  - jupyter
-  - ipython
+  - pandas
 
 # If you update the `scispacy.yml` you can run the following to update the
 # environment with your changes:
