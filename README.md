@@ -87,6 +87,8 @@ This project seeks to use natural language processing to identify specific clini
 
 ### Classical Modeling approach
 
+![Classical](classical_nlp.png)
+
 1. **Acquire Data**
    1. Download from kaggle.
 2. **Prepare Data** Use the NLTK to:
@@ -138,6 +140,8 @@ This project seeks to use natural language processing to identify specific clini
 ---
 
 ### Deep Leanting Approach
+
+![Deep](deep_nlp.png)
 
 1. Set up Environment for SciSpacy
 2. Shortfalls with word count vectorzation:
