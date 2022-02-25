@@ -83,6 +83,12 @@ This project seeks to use natural language processing to identify specific clini
 
 ## Plan
 
+---
+
+### Classical Modeling approach
+
+![Classical](classical_nlp.png)
+
 1. **Acquire Data**
    1. Download from kaggle.
 2. **Prepare Data** Use the NLTK to:
@@ -103,7 +109,7 @@ This project seeks to use natural language processing to identify specific clini
    4. Visualize most frequent words by patient.
    5. Examine bigrams and other n-grams.
 4. **Model:**
-   *MVP* will be a multiclass, multioutput classification assigning conditions to notes using NLTK and MLP methods from the curriculum.
+   *MVP* will be a model determining the case number from the patient note
    1. Feature enginnering
       1. Determine Term Frequency(TF).
       2. Determine Inverse Document Frequency(IDF).
@@ -121,14 +127,40 @@ This project seeks to use natural language processing to identify specific clini
       3. Compare confusion matrices of different models to see which performs best.
       4. Test the best model on out of sample data.
    *Deep Learning models* RNN, LSTM, other neural network approaches to classification.
-5. **Delivery**
+
+### Additional Classical Models
+
+1. Attempt to label feature from the training data notes.
+2. Make a separate model for each condition, limiting the number of features.
+3. Find a way to get multiple classificatuon outputs of models.
+4. Look into feature extraction using classical approaches.
+
+
+
+---
+
+### Deep Leanting Approach
+
+![Deep](deep_nlp.png)
+
+1. Set up Environment for SciSpacy
+2. Shortfalls with word count vectorzation:
+   1. i.e., Patient denies pain, shortness of breath, etc., etc., ... Long list of things that they **DON'T** have.
+   2. Need context-dependent word embedding
+3. Look into Gensym word embedding
+4. Use SpaCy and specifically, SciSpacy for parts of speech tagging looking to identify conditions, drugs, and other relavant features.
+5. Consider training a different model for each case/
+6. Look at LSTM and multilable, multiclass.
+
+
+### Delivery
+
+**Delivery**
    1. Refine best visuals.
    2. Create slides.
    3. Divide presentation.
    4. Rehearse.
    5. Deliver
-
----
 
 ## Key Findings
 
