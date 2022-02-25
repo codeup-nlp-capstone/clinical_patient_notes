@@ -1,17 +1,21 @@
 # type the below two lines into your terminal:
 # conda env create --file scispacy_env.yml
-# conda activate scispace
+# conda activate scispacy
 
-name: scispace
+name: scispacy
 dependencies:
+  - python=3.9
   - pip
   - pip:
     - scispacy
+    - nmslib==1.7.3.6
+    # below link is the scispacy pretrained model "en_ner_bc5cdr_md" which can be installed a couple different ways, but this will use pip and the link
+    - https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.4.0/en_ner_bc5cdr_md-0.4.0.tar.gz
   - pandas
   - jupyter
   - ipython
   - nltk
 
-# If you update the `scispacy.yml` you can run the following to update the
+# If you update the `scispacy_env.yml` you can run the following to update the
 # environment with your changes:
 # conda env update --file scispacy_env.yml --prune
