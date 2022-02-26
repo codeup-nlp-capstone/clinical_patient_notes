@@ -145,11 +145,11 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
 ######## Prepare labeled data ########
 
 def prep_train():
-    if os.path.isfile('df.csv'):
+    if os.path.isfile('train_prepped.csv'):
         # If csv file exists, read in data from csv file.
-        df = pd.read_csv('df.csv')
+        df = pd.read_csv('train_prepped.csv')
         return df
-    
+
     # Load data
     df = pd.read_csv('train.csv')
     notes = pd.read_csv('patient_notes.csv')
@@ -166,5 +166,7 @@ def prep_train():
     print('Merged dataframes')
     df = prep_article_data(
         df, 'original', extra_words=[], exclude_words=['no'])
-    df.to_csv('df.csv')
+    df['original_word_count'] = df.original.apply(
+        lambda x: len(str(x).split(' ')))
+    df.to_csv('train_prepped.csv')
     return df
