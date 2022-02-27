@@ -134,6 +134,7 @@ This project seeks to use natural language processing to identify specific clini
 2. Make a separate model for each condition, limiting the number of features.
 3. Find a way to get multiple classificatuon outputs of models.
 4. Look into feature extraction using classical approaches.
+5. Look into model improvement through *model stacking* or *model ensembling*.
 
 
 
