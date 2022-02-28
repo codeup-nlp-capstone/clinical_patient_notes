@@ -60,15 +60,18 @@ This project seeks to use natural language processing to identify specific clini
 
 | Feature                 | Datatype         | Definition                                                                       |
 |:------------------------|:-----------------|:---------------------------------------------------------------------------------|
-|  pn_num                 |                  |  A unique identifier for each patient notes                                      |
-|  case_num.              |                  |  A unique identifier for the clinical case a patient note represent              |
-|  pn_history             |                  |  The text of the encounter as recorded by the test taker.                        |
-|  feature_num            |                  |  A unique identifier for each feature.                                           |
-|  feature_text           |                  |  A description of the feature                                                    |
-|  Id                     |                  |  A unique identifier identifier for each patient note / feature pair.            |
-|  Annotation             |                  |  The text within the patient’s note indicating a feature                         |
-|  Location               |                  |  The character spans indicating the location of each annotations within the notes|
-|  Original               |                  |  The raw text as recorded by the test taker.                                     |
+|  pn_num                 |  int             |  A unique identifier for each patient notes                                      |
+|  case_num               |  int             |  A unique identifier for the clinical case a patient note represent              |
+|  pn_history             |  String          |  The text of the encounter as recorded by the test taker.                        |
+|  feature_num            |  int             |  A unique identifier for each feature.                                           |
+|  feature_text           |  String          |  A description of the feature                                                    |
+|  Id                     |   int            |  A unique identifier identifier for each patient note / feature pair.            |
+|  Annotation             |  String          |  The text within the patient’s note indicating a feature                         |
+|  Location               |   Int            |  The character spans indicating the location of each annotations within the notes|
+|  Original               |  String          |  The raw text as recorded by the test taker.                                     |
+|  clean                  |  String          |  The cleanned version of the raw text tokenized, with stoword removed.           |
+|  stemmed                |  String          |  reducing inflection in words to their root forms                                |
+|  lemmatized             |  String          |  considers the context and converts the word to its meaningful base form
 
 
 
