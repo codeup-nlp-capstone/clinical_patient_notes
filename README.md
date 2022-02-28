@@ -58,11 +58,21 @@ This project seeks to use natural language processing to identify specific clini
 
 ## Data Dictionary
 
-| Feature                 | Datatype                         | Definition                                                 |
-|:------------------------|:---------------------------------|:-----------------------------------------------------------|
-|               |             |            |
-|               |             |            |
-|               |             |            |
+| Feature                 | Datatype         | Definition                                                                       |
+|:------------------------|:-----------------|:---------------------------------------------------------------------------------|
+|  pn_num                 |                  |  A unique identifier for each patient notes                                      |
+|  case_num.              |                  |  A unique identifier for the clinical case a patient note represent              |
+|  pn_history             |                  |  The text of the encounter as recorded by the test taker.                        |
+|  feature_num            |                  |  A unique identifier for each feature.                                           |
+|  feature_text           |                  |  A description of the feature                                                    |
+|  Id                     |                  |  A unique identifier identifier for each patient note / feature pair.            |
+|  Annotation             |                  |  The text within the patient’s note indicating a feature                         |
+|  Location               |                  |  The character spans indicating the location of each annotations within the notes|
+|  Original               |                  |  The raw text as recorded by the test taker.                                     |
+
+
+
+
 
 ---
 
