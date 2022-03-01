@@ -71,7 +71,8 @@ This project seeks to use natural language processing to identify specific clini
 |  Original               |  String          |  The raw text as recorded by the test taker.                                     |
 |  clean                  |  String          |  The cleanned version of the raw text tokenized, with stoword removed.           |
 |  stemmed                |  String          |  reducing inflection in words to their root forms                                |
-|  lemmatized             |  String          |  considers the context and converts the word to its meaningful base form
+|  lemmatized             |  String          |  considers the context and converts the word to its meaningful base form         |
+
 
 
 
@@ -195,3 +196,4 @@ This project seeks to use natural language processing to identify specific clini
 ---
 
 ## Thank you for your time and attention
+- 
