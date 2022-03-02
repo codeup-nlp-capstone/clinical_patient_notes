@@ -135,3 +135,5 @@ elevator_pitch.txt
 GoogleNews-vectors-negative300.bin.gzd881v6u4.tmp
 GoogleNews-vectors-negative300.bin.gz
 GoogleNews-vectors-negative300.bin
+model_cbow.bin
+model_skipgram.bin
