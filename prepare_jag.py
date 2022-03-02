@@ -40,6 +40,7 @@ def basic_clean2(corpus):
 
 
 ############# BASIC CLEAN 3###################
+# leaves in - and /
 
 def basic_clean3(corpus):
     '''
