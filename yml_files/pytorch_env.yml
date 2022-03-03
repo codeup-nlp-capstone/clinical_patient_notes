@@ -12,6 +12,9 @@ dependencies:
   - jupyter
   - ipython
   - scikit-learn-intelex
+  - pip
+  - pip:
+    - transformers==3.0.0
 
 # then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to tf
 
