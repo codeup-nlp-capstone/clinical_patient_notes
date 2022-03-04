@@ -10,7 +10,7 @@ dependencies:
   - pandas
   - jupyter
   - ipython
-  - -c huggingface transformers
+  - transformers
 
 # then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to pytorch
 
