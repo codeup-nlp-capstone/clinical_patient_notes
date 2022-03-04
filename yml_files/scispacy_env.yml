@@ -16,6 +16,12 @@ dependencies:
   - ipython
   - nltk
 
+# to verify environment:
+# conda info --envs
+
+# to remove environment:
+# conda env remove -n ENVIRONMENT_NAME
+
 # If you update the `scispacy_env.yml` you can run the following to update the
 # environment with your changes:
 # conda env update --file yml_files/scispacy_env.yml --prune

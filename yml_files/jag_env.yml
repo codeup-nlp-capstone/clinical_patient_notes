@@ -25,7 +25,13 @@ dependencies:
       - tensorflow==1.14.0
       - gensim==3.6.0
       - numpy==1.19.5
-# then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to tf
+# then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to jag_cap
+
+# to verify environments:
+# conda info --envs
+
+# to remove environment:
+# conda env remove -n ENVIRONMENT_NAME
 
 # If you update the `jag_env.yml` you can run the following to update the
 # environment with your changes:

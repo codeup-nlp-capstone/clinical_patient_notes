@@ -25,6 +25,12 @@ dependencies:
 
 # then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to tf
 
+# to verify environment:
+# conda info --envs
+
+# to remove environment:
+# conda env remove -n ENVIRONMENT_NAME
+
 # If you update the `tf.yml` you can run the following to update the
 # environment with your changes:
 # conda env update --file yml_files/tf_env.yml --prune
