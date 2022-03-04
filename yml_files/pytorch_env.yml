@@ -1,5 +1,5 @@
 # type the below two lines into your terminal:
-# conda env create --file pytorch_env.yml
+# conda env create --file yml_files/pytorch_env.yml
 # conda activate pytorch
 
 name: pytorch
@@ -18,4 +18,4 @@ dependencies:
 
 # If you update the `pytorch_env.yml` you can run the following to update the
 # environment with your changes:
-# conda env update --file pytorch_env.yml --prune
+# conda env update --file yml_files/pytorch_env.yml --prune
