@@ -1,5 +1,5 @@
 # type the below two lines into your terminal:
-# conda env create --file conda_env.yml
+# conda env create --file yml_files/tf_env.yml
 # conda activate tf
 
 name: tf
@@ -25,6 +25,12 @@ dependencies:
 
 # then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to tf
 
-# If you update the `conda_env.yml` you can run the following to update the
+# to verify environment:
+# conda info --envs
+
+# to remove environment:
+# conda env remove -n ENVIRONMENT_NAME
+
+# If you update the `tf.yml` you can run the following to update the
 # environment with your changes:
-# conda env update --file conda_env.yml --prune
+# conda env update --file yml_files/tf_env.yml --prune

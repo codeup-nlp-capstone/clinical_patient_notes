@@ -1,5 +1,5 @@
 # type the below two lines into your terminal:
-# conda env create --file jag_env.yml
+# conda env create --file yml_files/jag_env.yml
 # conda activate jag
 
 name: jag_cap
@@ -25,8 +25,14 @@ dependencies:
       - tensorflow==1.14.0
       - gensim==3.6.0
       - numpy==1.19.5
-# then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to tf
+# then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to jag_cap
 
-# If you update the `conda_env.yml` you can run the following to update the
+# to verify environments:
+# conda info --envs
+
+# to remove environment:
+# conda env remove -n ENVIRONMENT_NAME
+
+# If you update the `jag_env.yml` you can run the following to update the
 # environment with your changes:
-# conda env update --file conda_env.yml --prune
+# conda env update --file yml_files/jag_env.yml --prune
