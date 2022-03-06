@@ -130,6 +130,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# team member files
 jag-nlp-capstone.code-workspace
 elevator_pitch.txt
 GoogleNews-vectors-negative300.bin.gzd881v6u4.tmp
@@ -137,3 +139,8 @@ GoogleNews-vectors-negative300.bin.gz
 GoogleNews-vectors-negative300.bin
 model_cbow.bin
 model_skipgram.bin
+
+# pytorch and biobert files
+*/NER
+*/QA
+*/RE

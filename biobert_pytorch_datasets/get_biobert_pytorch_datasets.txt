@@ -1,0 +1,15 @@
+# verify */NER, */QA, and */RE are in the .gitignore (should be at the bottom under "# pytorch and biobert files")
+- go to https://github.com/dmis-lab/biobert-pytorch
+
+# using the download.sh:
+- cd biobert_pytorch_datasets
+- curl -O https://raw.githubusercontent.com/dmis-lab/biobert-pytorch/master/download.sh
+- chmod +x download.sh (this changes permissions so you can download)
+- sh download.sh or ./download.sh (this downloads)
+
+# if the above displays an error for wget:
+- under installation click "here" (takes you to google drive)
+- a folder named datasets will be visible
+- in the top-right section, click download
+- from terminal, tar -xf archive.tar.gz (extracts the information from the file and places in cwd) or tar -xvf archive.tar.gz (the v makes tar command more visible and echo the names of the files being extracted)
+- then mv NER, QA, and RE folders into biobert_pytorch_datasets folder
