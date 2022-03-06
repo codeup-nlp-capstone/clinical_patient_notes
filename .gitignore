@@ -141,6 +141,4 @@ model_cbow.bin
 model_skipgram.bin
 
 # pytorch and biobert files
-*/NER
-*/QA
-*/RE
+biobert_pytorch/datasets
