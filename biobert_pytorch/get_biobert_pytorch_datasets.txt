@@ -1,3 +1,6 @@
+# wait before following these instructions
+# working on a git clone and moving through the installation instructions on GitHub
+
 # verify biobert_pytorch/datasets is in the .gitignore (should be at the bottom under "# pytorch and biobert files")
 - go to https://github.com/dmis-lab/biobert-pytorch
 
