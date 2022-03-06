@@ -1,15 +1,18 @@
-# verify */NER, */QA, and */RE are in the .gitignore (should be at the bottom under "# pytorch and biobert files")
+# verify biobert_pytorch/datasets is in the .gitignore (should be at the bottom under "# pytorch and biobert files")
 - go to https://github.com/dmis-lab/biobert-pytorch
 
 # using the download.sh:
-- cd biobert_pytorch_datasets
-- curl -O https://raw.githubusercontent.com/dmis-lab/biobert-pytorch/master/download.sh
-- chmod +x download.sh (this changes permissions so you can download)
-- sh download.sh or ./download.sh (this downloads)
+- in terminal:
+    - cd biobert_pytorch
+    - curl -O https://raw.githubusercontent.com/dmis-lab/biobert-pytorch/master/download.sh
+    - chmod +x download.sh (this changes permissions so you can download)
+    - sh download.sh or ./download.sh (this downloads)
 
-# if the above displays an error for wget:
+# if the above displays an error:
 - under installation click "here" (takes you to google drive)
 - a folder named datasets will be visible
 - in the top-right section, click download
-- to extract files, from terminal, "tar -xf filename.tar.gz", "tar -xvf filename.tar.gz", or "tar -xzvf datasets.tar.gz" (for flag meanings, in terminal tar -h)
-- then move NER, QA, and RE folders into biobert_pytorch_datasets folder
+- to extract files, from terminal:
+    - only run one of the follow commands:
+        - "tar -xf filename.tar.gz", "tar -xvf filename.tar.gz", or "tar -xzvf datasets.tar.gz" (for flag meanings, in terminal: tar -h)
+    - rm filename.tar.gz
