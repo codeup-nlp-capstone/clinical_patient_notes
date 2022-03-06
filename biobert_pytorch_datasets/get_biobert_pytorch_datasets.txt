@@ -11,5 +11,5 @@
 - under installation click "here" (takes you to google drive)
 - a folder named datasets will be visible
 - in the top-right section, click download
-- from terminal, tar -xf archive.tar.gz (extracts the information from the file and places in cwd) or tar -xvf archive.tar.gz (the v makes tar command more visible and echo the names of the files being extracted)
-- then mv NER, QA, and RE folders into biobert_pytorch_datasets folder
+- to extract files, from terminal, "tar -xf filename.tar.gz", "tar -xvf filename.tar.gz", or "tar -xzvf datasets.tar.gz" (for flag meanings, in terminal tar -h)
+- then move NER, QA, and RE folders into biobert_pytorch_datasets folder
