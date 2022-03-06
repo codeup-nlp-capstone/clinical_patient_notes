@@ -11,6 +11,9 @@ dependencies:
   - jupyter
   - ipython
   - transformers
+  - pip
+  - pip:
+    - seqeval
 
 # then run the test.ipynb to verify correct installaltion, not forgetting to change the notebook kernel to pytorch
 
