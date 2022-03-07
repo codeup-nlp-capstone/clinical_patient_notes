@@ -31,4 +31,5 @@
 -slide 31: good
 -slide 32: good
 -slide 33: good
--slide 34: team slide with links to github, email, linkedin
+-slide 34: add recap
+-slide 35: team slide with links to github, email, linkedin
