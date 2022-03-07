@@ -1,0 +1,34 @@
+- slide 1: good
+- slide 2: pictures at end with links
+- slide 3: adjust angle of problem > explore > models > deep learning > next steps
+- slide 4: good
+- slide 5: good
+- slide 6: good
+- slide 7: feature -> clinical concept
+- slide 8: adjust angle
+- slide 9: good
+-slide 10: good
+-slide 11: remove words to numbers. reintroduced some punctuation (different way)
+-slide 12: good
+-slide 13: update to one of our documents. too much text.
+-slide 14: high tf-idf vs low tf-idf
+-slide 15: adjust angle
+-slide 16: remove confusion matrix
+-slide 17: add clinical concepts
+-slide 18: good
+-slide 19: good
+-slide 20: good
+-slide 21: good
+-slide 22: remove cbow
+-slide 23: remove skipgram
+-slide 24: too many numbers, speak to matrix
+-slide 25: too many numbers, speak to values
+-slide 26: good
+-slide 27: good
+-slide 28: good
+-slide 29: good
+-slide 30: good
+-slide 31: good
+-slide 32: good
+-slide 33: good
+-slide 34: team slide with links to github, email, linkedin
