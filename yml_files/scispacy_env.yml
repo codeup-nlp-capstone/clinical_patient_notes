@@ -15,6 +15,7 @@ dependencies:
   - jupyter
   - ipython
   - nltk
+  - matplotlib
 
 # to verify environment:
 # conda info --envs

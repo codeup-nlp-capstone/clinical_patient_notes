@@ -142,3 +142,5 @@ model_skipgram.bin
 
 # pytorch and biobert files
 biobert_pytorch/datasets
+
+scott_speaker_notes.txt
