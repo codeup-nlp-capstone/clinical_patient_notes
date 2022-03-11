@@ -91,7 +91,7 @@ This project seeks to use natural language processing to identify specific clini
   - [ ] `patient_notes.csv`
   - [ ] `test.csv`
   - [ ] `train.csv`
-- [ ] Run final report notebook.
+- [ ] Run [final report notebook](https://github.com/codeup-nlp-capstone/nlp-capstone/blob/main/mvp-presentation-notebook.ipynb).
 
 ---
 
@@ -150,8 +150,6 @@ This project seeks to use natural language processing to identify specific clini
 4. Look into feature extraction using classical approaches.
 5. Look into model improvement through *model stacking* or *model ensembling*.
 
-
-
 ---
 
 ### Deep Leanting Approach
@@ -167,33 +165,45 @@ This project seeks to use natural language processing to identify specific clini
 5. Consider training a different model for each case/
 6. Look at LSTM and multilable, multiclass.
 
-
 ### Delivery
 
-**Delivery**
-   1. Refine best visuals.
-   2. Create slides.
-   3. Divide presentation.
-   4. Rehearse.
-   5. Deliver
+1. Refine best visuals.
+2. Create slides.
+3. Divide presentation.
+4. Rehearse.
+5. Deliver
 
 ## Key Findings
 
-- 
+- Classical models perform well on simple tasks like assigning which of the ten possible cases the note belongs to based on the content of the note.
+- These approaches fail at more complex tasks like extracting the 143 different clinical concepts from the notes
+- Concepts can be expressed in many different ways with many different words
+- Spelling is inconsistent in these notes with many misspellings
+- TF-IDF and other word-count based approaches are insufficient
+- More sophisticated methods for word embedding that capture context are needed
+  - SpaCy
+  - SciSpaCy
+  - BioBERT
+- Each of these additional deep-learning approaches add new, useful information, but none of them alone solve the problem of extracting and identifying clinical concepts from patient notes
+- Our final model will likely be an ensemble of different models employing these techniques.
 
 ---
 
 ## Conclusions
 
-- 
+- Classical techniques with word counts can be used to accurately predict simple classifications.
+- These techniques are insufficient for identifying clinical concepts in notes because there are so many different ways to express the same concept in words.
+- Deep learning approaches that look at word context improve models.
+- Some of those approaches have been trained specifically on biomedical data and those perform best.
 
 ---
 
 ## Future Directions
 
-- 
+- Add BioBERT.
+- Use different word embeddings for deep learning models using LSTMs.
+- Create ensemble models incorporating these different embeddings.
 
 ---
 
 ## Thank you for your time and attention
-- 
