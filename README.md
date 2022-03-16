@@ -3,7 +3,7 @@
 Here we will use natural language processing in order to identify medical condition listed in patient history notes.
 
 ---
-![patient_history](exam.jpeg)
+![patient_history](images/exam.jpeg)
 ## Authors
 
 - [@christian_freeman](https://github.com/cfreeman22)
