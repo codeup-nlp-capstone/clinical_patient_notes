@@ -85,7 +85,7 @@ This project seeks to use natural language processing to identify specific clini
 - [x] Read the `README.md`.
 - [ ] Clone this repository to your local environment.
   - [ ] `git clone git@github.com:codeup-nlp-capstone/nlp-capstone.git`
-- [ ] Open the `conda_env.yml` file and follow the instructions to create an environment with the proper libraries.
+- [ ] Open the `tf_env.yml` file and follow the instructions to create an environment with the proper libraries.
 - [ ] Download the `csv` files from the [kaggle website](https://www.kaggle.com/c/nbme-score-clinical-patient-notes/data) and ensure they are in your repository directory.
   - [ ] `features.csv`
   - [ ] `patient_notes.csv`
@@ -101,7 +101,7 @@ This project seeks to use natural language processing to identify specific clini
 
 ### Classical Modeling approach
 
-![Classical](classical_nlp.png)
+![Classical](images/classical_nlp.png)
 
 1. **Acquire Data**
    1. Download from kaggle.
@@ -154,7 +154,7 @@ This project seeks to use natural language processing to identify specific clini
 
 ### Deep Leanting Approach
 
-![Deep](deep_nlp.png)
+![Deep](images/deep_nlp.png)
 
 1. Set up Environment for SciSpacy
 2. Shortfalls with word count vectorzation:

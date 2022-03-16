@@ -259,15 +259,15 @@ def boil_it_down(df, column):
 
 def prep_text2(df, column, extra_words=[], exclude_words=['no','i']):
     '''
-    This function take in a df and the string name for a text column with 
+    This function take in a df and the string name for a text column with
     option to pass lists for extra_words and exclude_words and
     returns a df with the text article title, original text, stemmed text,
     lemmatized text, cleaned, tokenized, & lemmatized text with stopwords removed.
     '''
     df['clean'] = df[column].apply(basic_clean)\
                             .apply(tokenize)\
-                            .apply(remove_stopwords, 
-                                   extra_words=extra_words, 
+                            .apply(remove_stopwords,
+                                   extra_words=extra_words,
                                    exclude_words=exclude_words)
     return df[['case', column, 'clean']]
 
@@ -293,10 +293,10 @@ def split_data(df):
 '''========================================================================'''
 
 def prep_and_split_data():
-    
+
     # Read csv files into a Pandas dataframe.
-    features = pd.read_csv('features.csv')
-    notes = pd.read_csv('patient_notes.csv')
+    features = pd.read_csv('data/features.csv')
+    notes = pd.read_csv('data/patient_notes.csv')
     # Rename columns in the features dataframe.
     features.rename(columns={'feature_num':'feature_id', 'case_num':'case', 'feature_text':'target'}, inplace=True)
     # Rename columns in notes dataframe.
@@ -321,18 +321,17 @@ def prep_and_split_data():
     df = notes.merge(case_targets, how='inner', on='case')
     train_df, val_df, test_df = split_data(df)
     return train_df, val_df, test_df
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+

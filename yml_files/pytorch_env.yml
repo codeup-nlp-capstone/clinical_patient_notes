@@ -10,6 +10,7 @@ dependencies:
   - pandas
   - jupyter
   - ipython
+  - nltk
   - transformers
   - pip
   - pip:
