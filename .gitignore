@@ -8,6 +8,7 @@ jag-nlp-capstone.code-workspace
 *.zip
 # C extensions
 *.so
+*.tmp
 
 # Distribution / packaging
 .Python
@@ -144,3 +145,4 @@ model_skipgram.bin
 biobert_pytorch/datasets
 
 scott_speaker_notes.txt
+notebooks/jared/GoogleNews-vectors-negative300.bin.gzwwejxzl_.tmp
