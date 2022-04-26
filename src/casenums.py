@@ -1,7 +1,7 @@
 import pandas as pd
 
 class UniqueDataFrames:
-    """ This class merges to dataframes and then creates a dictionary where the key is the unique column entry and the value is the dataframe relating to that unique column entry
+    """ This class merges two dataframes and then creates a dictionary where the key is the unique column entry and the value is the dataframe relating to that unique column entry
     """
 
     def __init__(self, notes_file, feature_file):
